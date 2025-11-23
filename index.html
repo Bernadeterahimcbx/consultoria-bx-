@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consultoria BX — Inovação que conecta governos, empresas e sociedade</title>
+  <meta name="description" content="Consultoria BX — tecnologia e sustentabilidade para transformar recursos em resultados. Participante da Rede InovaGov. Diagnóstico 17 ODS, Praças de Inovação, projetos e capacitação." />
+  <style>
+    :root{
+      --bx-bg:#ffffff;--bx-text:#1f2937;--bx-muted:#6b7280;--bx-border:#e5e7eb;
+      --bx-primary:#1d4ed8;--bx-primary-2:#0891b2;--bx-accent:#0ea5e9;
+      --bx-surface:#f8fafc;--bx-surface-2:#f1f5f9;
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,sans-serif;line-height:1.6;color:var(--bx-text);background:var(--bx-bg)}
+    /* Utilities */
+    .bx-container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .bx-btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid transparent;padding:.9rem 1.1rem;border-radius:.75rem;cursor:pointer;font-weight:600;text-decoration:none}
+    .bx-btn-primary{background:linear-gradient(135deg,var(--bx-primary),var(--bx-primary-2));color:#fff}
+    .bx-btn-outline{background:transparent;border-color:var(--bx-border);color:var(--bx-text)}
+    .bx-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .6rem;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:.75rem;font-weight:600}
+    .bx-grid{display:grid;gap:1rem}
+    .bx-card{border:1px solid var(--bx-border);border-radius:1rem;background:#fff}
+    .bx-card-body{padding:1rem}
+    .bx-chip{display:inline-block;padding:.35rem .6rem;border-radius:.6rem;background:var(--bx-surface-2);font-size:.75rem;color:#334155}
+    .bx-muted{color:var(--bx-muted)}
+    .bx-section{padding:64px 0}
+    .bx-eyebrow{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:#e0f2fe;color:#075985;font-size:.75rem;font-weight:700}
+    .bx-title{margin:.5rem 0 0;font-size:clamp(1.6rem,2.2vw,2.25rem);line-height:1.2}
+    .bx-sub{margin:.5rem 0 0;color:var(--bx-muted)}
+
+    /* Navbar */
+    .bx-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--bx-border)}
+    .bx-nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .bx-brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
+    .bx-logo{width:28px;height:28px;border-radius:.6rem;background:linear-gradient(135deg,var(--bx-primary),var(--bx-accent))}
+    .bx-menu{display:flex;gap:1rem}
+    .bx-menu a{font-size:.95rem;text-decoration:none;color:#334155}
+    .bx-menu a:hover{color:#0f172a}
+    .bx-burger{display:none;background:none;border:0;font-size:1.25rem}
+
+    /* Hero */
+    .bx-hero{background:linear-gradient(160deg,#eff6ff 0%,#ffffff 40%,#ecfeff 100%);padding:80px 0}
+    .bx-hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:0}
+    .bx-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
+    .bx-stat{border:1px solid var(--bx-border);border-radius:1rem;padding:14px;text-align:center}
+    .bx-stat b{display:block;font-size:1.5rem}
+
+    /* Grids */
+    @media(min-width:768px){
+      .md-grid-2{grid-template-columns:repeat(2,1fr)}
+      .md-grid-3{grid-template-columns:repeat(3,1fr)}
+      .md-grid-4{grid-template-columns:repeat(4,1fr)}
+    }
+
+    /* Footer */
+    footer{border-top:1px solid var(--bx-border);background:#fff}
+
+    /* Simple form */
+    .bx-field{display:flex;flex-direction:column;gap:.35rem}
+    .bx-input,.bx-textarea{border:1px solid var(--bx-border);border-radius:.6rem;padding:.8rem;font:inherit}
+    .bx-textarea{min-height:120px}
+
+    /* Anchor offset for sticky header */
+    .bx-anchor{scroll-margin-top:80px}
+
+    /* Mobile */
+    @media(max-width:767px){
+      .bx-menu{display:none}
+      .bx-burger{display:block}
+      .bx-menu.open{display:flex;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bx-border);padding:12px 20px;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="bx-nav" aria-label="Navegação principal">
+    <div class="bx-container bx-nav-inner">
+      <div class="bx-brand"><span class="bx-logo" aria-hidden="true"></span><span>Consultoria BX</span></div>
+      <button class="bx-burger" aria-expanded="false" aria-controls="bx-mobile" id="bx-burger">☰</button>
+      <div class="bx-menu" id="bx-mobile">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#setores">Setores</a>
+        <a href="#parcerias">Parcerias</a>
+        <a href="#ods">ODS</a>
+        <a href="#hub">Hub</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="bx-hero">
+    <div class="bx-container bx-grid md-grid-2" role="region" aria-label="Apresentação">
+      <div>
+        <h1>Inovação que conecta governos, empresas e sociedade</h1>
+        <p class="bx-sub">Atuamos nos setores público e privado para transformar dados, tecnologia e estratégia em
+          resultados concretos. Somos uma das poucas empresas integrantes da <strong>Rede InovaGov</strong>.</p>
+        <div style="margin:14px 0;display:flex;flex-wrap:wrap;gap:.5rem">
+          <span class="bx-badge">Rede InovaGov</span>
+          <span class="bx-badge">Microsoft Founders Hub</span>
+          <span class="bx-badge">Leading Cities</span>
+          <span class="bx-badge">ODS / Agenda 2030</span>
+        </div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.75rem">
+          <a class="bx-btn bx-btn-primary" href="#contato">Agendar conversa →</a>
+          <a class="bx-btn bx-btn-outline" href="#solucoes">Ver soluções</a>
+        </div>
+        <div class="bx-stats" aria-label="Indicadores da BX">
+          <div class="bx-stat"><b>+30</b><span class="bx-muted" style="font-size:.85rem">Municípios atendidos</span></div>
+          <div class="bx-stat"><b>+50</b><span class="bx-muted" style="font-size:.85rem">Projetos/ano</span></div>
+          <div class="bx-stat"><b>97%</b><span class="bx-muted" style="font-size:.85rem">Satisfação</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="bx-card">
+          <div class="bx-card-body">
+            <div class="bx-grid md-grid-2">
+              <div class="bx-chip">Diagnóstico Municipal 17 ODS</div>
+              <div class="bx-chip">Capacitação</div>
+              <div class="bx-chip">Praças de Inovação</div>
+              <div class="bx-chip">Treinamentos</div>
+              <div class="bx-chip">Elaboração de Projetos</div>
+              <div class="bx-chip">Mentoria</div>
+            </div>
+            <p class="bx-muted" style="margin-top:.75rem">Soluções práticas e escaláveis para gestão pública e ESG.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="bx-section bx-anchor">
+    <div class="bx-container" role="region" aria-labelledby="sobre-title">
+      <span class="bx-eyebrow">Quem somos</span>
+      <h2 id="sobre-title" class="bx-title">Somos a ponte entre quem tem ideias e quem precisa de resultados</h2>
+      <p class="bx-sub">Conectamos setor público, privado e academia para resolver desafios reais com tecnologia, inovação e impacto social.</p>
+      <p style="max-width:70ch">A <strong>Consultoria BX</strong> apoia gestores públicos, empresas e organizações do terceiro setor a
+        implementarem iniciativas de alto impacto, com foco em governança de dados (LGPD), transformação digital,
+        sustentabilidade e inovação aberta. Combinamos estratégia, execução ágil e indicadores para gerar valor
+        mensurável para a sociedade.</p>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section id="solucoes" class="bx-section bx-anchor" aria-label="Portfólio de soluções">
+    <div class="bx-container">
+      <span class="bx-eyebrow">Portfólio</span>
+      <h2 class="bx-title">Soluções</h2>
+      <p class="bx-sub">Estratégia + Tecnologia + Impacto</p>
+
+      <div class="bx-grid md-grid-3" style="margin-top:1rem">
+        <div class="bx-card"><div class="bx-card-body">
+          <h3 style="margin:.25rem 0">Diagnóstico Municipal 17 ODS</h3>
+          <p class="bx-muted">Mapas de indicadores, baseline e trilhas de priorização alinhadas à Agenda 2030.</p>
+          <ul>
+            <li>Coleta e organização de dados</li>
+            <li>Painéis e relatórios executivos</li>
+            <li>Planos de ação por ODS</li>
+          </ul>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3 style="margin:.25rem 0">Capacitação & Treinamentos</h3>
+          <p class="bx-muted">Jornadas práticas para servidores e equipes.</p>
+          <ul>
+            <li>LGPD e governança de dados</li>
+            <li>IA aplicada à gestão</li>
+            <li>Compras inovadoras e OKRs</li>
+          </ul>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3 style="margin:.25rem 0">Praças de Inovação (Hubs)</h3>
+          <p class="bx-muted">Ambientes vivos para experimentar soluções e aproximar a comunidade.</p>
+          <ul>
+            <li>Governança e curadoria de parceiros</li>
+            <li>Desafios públicos / sandbox</li>
+            <li>Laboratórios vivos</li>
+          </ul>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3 style="margin:.25rem 0">Elaboração de Projetos</h3>
+          <p class="bx-muted">Do diagnóstico ao plano de investimentos.</p>
+          <ul>
+            <li>Captação (FINEP, BNDES, BID, emendas)</li>
+            <li>Estudos técnicos e termos de referência</li>
+            <li>PPPs e eficiência energética</li>
+          </ul>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3 style="margin:.25rem 0">Mentoria</h3>
+          <p class="bx-muted">Para líderes públicos, PMEs e startups.</p>
+          <ul>
+            <li>Liderança e carreira pública</li>
+            <li>Modelo de negócios com IA</li>
+            <li>Go-to-market para govtechs</li>
+          </ul>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3 style="margin:.25rem 0">Consultoria & Tecnologia</h3>
+          <p class="bx-muted">Estratégia, dados e transformação digital.</p>
+          <ul>
+            <li>Arquitetura de dados (LGPD)</li>
+            <li>Automação com IA e APIs</li>
+            <li>Dashboards e OKRs</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SETORES -->
+  <section id="setores" class="bx-section bx-anchor" aria-label="Setores atendidos">
+    <div class="bx-container">
+      <span class="bx-eyebrow">Para quem</span>
+      <h2 class="bx-title">Setores atendidos</h2>
+      <p class="bx-sub">Atuamos no setor público e privado em diferentes frentes.</p>
+      <div class="bx-grid md-grid-3" style="margin-top:1rem">
+        <div class="bx-card"><div class="bx-card-body">
+          <h3>Prefeituras e governos</h3>
+          <p class="bx-muted">Diagnóstico, projetos e execução orientada a resultados.</p>
+          <a class="bx-btn bx-btn-outline" href="#contato">Quero saber mais →</a>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3>Empresas e fornecedores</h3>
+          <p class="bx-muted">Conexão com demandas públicas e ESG/ODS.</p>
+          <a class="bx-btn bx-btn-outline" href="#contato">Quero saber mais →</a>
+        </div></div>
+        <div class="bx-card"><div class="bx-card-body">
+          <h3>Startups e PMEs</h3>
+          <p class="bx-muted">Mentoria, produto, go-to-market e inovação.</p>
+          <a class="bx-btn bx-btn-outline" href="#contato">Quero saber mais →</a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCERIAS -->
+  <section id="parcerias" class="bx-section bx-anchor" aria-label="Parcerias e redes">
+    <div class="bx-container">
+      <span class="bx-eyebrow">Ecossistema</span>
+      <h2 class="bx-title">Parcerias e redes</h2>
+      <div class="bx-grid md-grid-4" style="margin-top:1rem">
+        <div class="bx-card"><div class="bx-card-body" style="text-align:center;font-weight:700">Rede InovaGov</div></div>
+        <div class="bx-card"><div class="bx-card-body" style="text-align:center;font-weight:700">Microsoft Founders Hub</div></div>
+        <div class="bx-card"><div class="bx-card-body" style="text-align:center;font-weight:700">Leading Cities</div></div>
+        <div class="bx-card"><div class="bx-card-body" style="text-align:center;font-weight:700">BrazilLAB</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ODS -->
+  <section id="ods" class="bx-section bx-anchor" aria-label="ODS na prática">
+    <div class="bx-container">
+      <span class="bx-eyebrow">Agenda 2030</span>
+      <h2 class="bx-title">ODS na prática</h2>
+      <p class="bx-sub">Projetos alinhados aos 17 Objetivos de Desenvolvimento Sustentável.</p>
+      <div class="bx-grid md-grid-4" style="grid-template-columns:repeat(2,1fr);gap:.75rem;margin-top:1rem">
+        <!-- 17 simple tiles -->
+        <style>.ods-tile{display:flex;align-items:center;justify-content:center;border:1px solid var(--bx-border);border-radius:.9rem;padding:20px;font-weight:700;background:#fff}</style>
+        <div class="ods-tile">ODS 1</div><div class="ods-tile">ODS 2</div><div class="ods-tile">ODS 3</div><div class="ods-tile">ODS 4</div>
+        <div class="ods-tile">ODS 5</div><div class="ods-tile">ODS 6</div><div class="ods-tile">ODS 7</div><div class="ods-tile">ODS 8</div>
+        <div class="ods-tile">ODS 9</div><div class="ods-tile">ODS 10</div><div class="ods-tile">ODS 11</div><div class="ods-tile">ODS 12</div>
+        <div class="ods-tile">ODS 13</div><div class="ods-tile">ODS 14</div><div class="ods-tile">ODS 15</div><div class="ods-tile">ODS 16</div>
+        <div class="ods-tile">ODS 17</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUB -->
+  <section id="hub" class="bx-section bx-anchor" aria-label="Hub de Inovação Municipal">
+    <div class="bx-container bx-grid md-grid-2">
+      <div>
+        <span class="bx-eyebrow">Hub de Inovação</span>
+        <h2 class="bx-title">Um vetor de desenvolvimento para o seu município</h2>
+        <p class="bx-sub">Aceleramos soluções em políticas públicas antes de escalar, integrando governo, academia e mercado.</p>
+        <ul>
+          <li>Governança clara e quadro de parceiros</li>
+          <li>Desafios públicos e sandbox regulatório</li>
+          <li>Métricas de impacto e sustentabilidade</li>
+        </ul>
+        <a class="bx-btn bx-btn-primary" href="#contato">Quero implantar o Hub →</a>
+      </div>
+      <div class="bx-card"><div class="bx-card-body">
+        <strong>Produto BX</strong>
+        <ol>
+          <li>Diagnóstico (dados + escuta ativa)</li>
+          <li>Desenho da solução (MVP/Projeto)</li>
+          <li>Execução ágil com OKRs e governança</li>
+          <li>Captação e escalabilidade</li>
+          <li>Monitoramento e melhoria contínua</li>
+        </ol>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bx-section" style="background:linear-gradient(135deg,var(--bx-primary),var(--bx-primary-2));color:#fff">
+    <div class="bx-container" style="text-align:center">
+      <h3 class="bx-title" style="color:#fff">Pronto para transformar recursos em resultados?</h3>
+      <p class="bx-sub" style="color:#f0f9ff">Vamos cocriar soluções que gerem impacto real para sua cidade, organização ou negócio.</p>
+      <a class="bx-btn bx-btn-outline" style="border-color:#fff;color:#fff" href="#contato">Falar com especialista →</a>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="bx-section bx-anchor" aria-label="Formulário de contato">
+    <div class="bx-container bx-grid md-grid-2">
+      <div class="bx-card"><div class="bx-card-body">
+        <h3>Fale com a BX</h3>
+        <p class="bx-muted">Responderemos em 1–2 dias úteis.</p>
+        <form onsubmit="event.preventDefault();alert('Mensagem enviada! (Exemplo)');">
+          <div class="bx-field"><label for="bx-nome">Nome</label><input id="bx-nome" class="bx-input" required></div>
+          <div class="bx-field"><label for="bx-email">E-mail</label><input id="bx-email" type="email" class="bx-input" required></div>
+          <div class="bx-field"><label for="bx-org">Organização</label><input id="bx-org" class="bx-input"></div>
+          <div class="bx-field"><label for="bx-assunto">Assunto</label><input id="bx-assunto" class="bx-input"></div>
+          <div class="bx-field"><label for="bx-msg">Mensagem</label><textarea id="bx-msg" class="bx-textarea"></textarea></div>
+          <button class="bx-btn bx-btn-primary" type="submit">Enviar</button>
+        </form>
+      </div></div>
+      <div>
+        <h4 style="margin-top:0">Como podemos ajudar?</h4>
+        <ul>
+          <li>Implantação do Diagnóstico 17 ODS</li>
+          <li>Criação de Praça/Hub de Inovação</li>
+          <li>Captação de recursos e projetos</li>
+          <li>LGPD, dados e IA aplicada</li>
+          <li>Mentoria para liderança/PMEs/Startups</li>
+        </ul>
+        <div class="bx-card" style="margin-top:1rem"><div class="bx-card-body">
+          <p class="bx-muted">Preferiu falar agora? Envie uma mensagem e receba um retorno rápido do nosso time.</p>
+          <p style="margin:.25rem 0"><strong>E-mail</strong>: contato@gestaobx.com</p>
+          <p style="margin:.25rem 0"><strong>Telefone</strong>: +55 (61) 9 9999-0000</p>
+          <p style="margin:.25rem 0">Brasília • DF • Brasil</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="bx-container bx-grid md-grid-4" style="padding:40px 0">
+      <div>
+        <div class="bx-brand"><span class="bx-logo" aria-hidden="true"></span><span>Consultoria BX</span></div>
+        <p class="bx-muted">Tecnologia e sustentabilidade para transformar vidas — conectando governo, empresas e sociedade.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#parcerias">Parcerias</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Soluções</h5>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li>Diagnóstico 17 ODS</li>
+          <li>Praças de Inovação</li>
+          <li>Elaboração de Projetos</li>
+          <li>Mentoria e Treinamentos</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <p class="bx-muted">contato@gestaobx.com</p>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--bx-border);text-align:center;padding:18px 0;font-size:.8rem;color:var(--bx-muted)">© <span id="bx-year"></span> Consultoria BX — Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    document.getElementById('bx-year').textContent = new Date().getFullYear();
+    const burger = document.getElementById('bx-burger');
+    const menu = document.getElementById('bx-mobile');
+    burger?.addEventListener('click', ()=>{
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  </script>
+</body>
+</html>
